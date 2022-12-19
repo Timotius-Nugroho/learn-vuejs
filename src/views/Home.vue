@@ -2,8 +2,8 @@
   <div>
     <h1>HOME....</h1>
     <HelloWorld msg="Timotius" alias="Tims " />
-    <div :style="{ marginTop: '20px', color: $store.state.colorCode }">
-      Init: {{ this.$store.state.count }} - Sqrt:
+    <div :style="{ marginTop: '20px', color: $store.state.counter.colorCode }">
+      Init: {{ this.$store.state.counter.count }} - Sqrt:
       {{ this.$store.getters.counterSqrt }}
     </div>
     <div>
@@ -21,7 +21,7 @@
       </button>
     </div>
     <input
-      v-model="$store.state.colorCode"
+      v-model="$store.state.counter.colorCode"
       type="text"
       placeholder="NEW COLOR"
     />
@@ -36,15 +36,15 @@ export default {
   components: {
     HelloWorld,
   },
-  // computed: {
-  //   colorCode: {
-  //     get() {
-  //       return this.$store.state.colorCode;
-  //     },
-  //     set(newValue) {
-  //       this.$store.commit("setColorCode", newValue);
-  //     },
-  //   },
-  // },
+  computed: {
+    // colorCode: {
+    //   get() {
+    //     return this.$store.state.counter.colorCode;
+    //   },
+    //   set(newValue) {
+    //     this.$store.commit("setColorCode", newValue);
+    //   },
+    // },
+  },
 };
 </script>

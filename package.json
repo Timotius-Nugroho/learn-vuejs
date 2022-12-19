@@ -12,15 +12,16 @@
     "axios": "^1.2.1",
     "core-js": "^3.8.3",
     "vue": "^2.6.14",
-    "vue-router": "3.2.0"
+    "vue-router": "3.2.0",
+    "vuex": "2.3.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "4.5.4",
     "@vue/cli-service": "~5.0.0",
-    "babel-eslint": "^10.1.0",
     "autoprefixer": "^10.4.13",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "postcss": "^8.4.20",

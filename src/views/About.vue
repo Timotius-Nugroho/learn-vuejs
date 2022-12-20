@@ -15,18 +15,22 @@
         <p v-show="this.users.length === 0">Loading....</p>
       </div>
       <div>
-        <div v-if="this.payloads.length > 0">
+        <div v-if="this.payloads.length > 0" class="bg-orange-600 p-2">
           <div
             class="mt-2 p-4 bg-blue-300"
             v-for="(payload, index) in payloads"
             :key="index"
           >
-            {{ payload.id }} - {{ payload.orbit }} - {{ payload.payload_type }}
+            {{ payload.id }} - {{ payload.orbit }} -
+            {{ payload.payload_type }}
           </div>
         </div>
         <p v-show="$apollo.queries.payloads.loading">Loading....</p>
-        <button @click="showMorepayloads()">SHOW</button>
+        <!-- <button @click="showMorepayloads()">SHOW</button> -->
       </div>
+    </div>
+    <div v-if="payloads.length" v-observe-visibility="scrlBtm">
+      <div class="p-4"></div>
     </div>
   </div>
 </template>
@@ -56,9 +60,20 @@ export default {
       offset: 0,
       users: [],
       payloads: [],
+      rockets: [],
     };
   },
+  watch: {
+    payloads: function (newVal) {
+      console.log(newVal);
+    },
+  },
   methods: {
+    scrlBtm(isVisible) {
+      if (!isVisible) return;
+      console.log("BLOAD NEW DATA");
+      this.showMorepayloads();
+    },
     showMorepayloads() {
       this.offset += 3;
 
@@ -69,6 +84,8 @@ export default {
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           const newList = fetchMoreResult.payloads;
+
+          // this.payloads.push(...newList);
 
           return {
             payloads: [...previousResult.payloads, ...newList],

@@ -5,9 +5,11 @@ import router from "./router";
 import store from "./store/index";
 import "./index.css";
 import apolloProvider from "./lib/apolloProvider";
+import VueObserveVisibility from "vue-observe-visibility";
 
 Vue.config.productionTip = false;
 Vue.use(VueApollo);
+Vue.use(VueObserveVisibility);
 
 new Vue({
   router,

@@ -60,7 +60,6 @@ export default {
       offset: 0,
       users: [],
       payloads: [],
-      rockets: [],
     };
   },
   watch: {
